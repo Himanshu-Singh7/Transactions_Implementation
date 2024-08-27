@@ -23,9 +23,15 @@ public class UserDao {
              Create new transaction and execute the method:
     */
 
+    /*  @Transactional(propagation = Propagation.SUPPORTS)
+            if(parent txn present)
+               Use it:
+             else
+               Execute the method without any transaction
+    */
 
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void method2(){
         // Execute DB Queries
         boolean isTransactionActive = TransactionSynchronizationManager.isActualTransactionActive();

@@ -11,6 +11,7 @@ public class UserService {
      @Autowired
      UserDao userDaoObj;
 
+
     @Transactional
     public void method1(){
         System.out.println("is Transaction is Active : "+ TransactionSynchronizationManager.isActualTransactionActive());
