@@ -7,7 +7,25 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 @Component
 public class UserDao {
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    /*  @Transactional(propagation = Propagation.REQUIRED)
+            if(parent txn present)
+               Use it:
+             else
+               Create new transaction
+    */
+
+    /*    @Transactional(propagation = Propagation.REQUIRES_NEW)
+           if(parent txn present)
+            Suspend the parent txn:
+            Create a new Txn and once finished:
+            Resume the parent txn:
+           else
+             Create new transaction and execute the method:
+    */
+
+
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void method2(){
         // Execute DB Queries
         boolean isTransactionActive = TransactionSynchronizationManager.isActualTransactionActive();
