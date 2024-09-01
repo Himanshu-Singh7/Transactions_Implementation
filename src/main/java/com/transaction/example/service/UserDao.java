@@ -4,6 +4,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
+import java.util.*;
+
 @Component
 public class UserDao {
 
@@ -23,12 +25,14 @@ public class UserDao {
              Create new transaction and execute the method:
     */
 
-    /*  @Transactional(propagation = Propagation.SUPPORTS)
+    /*    @Transactional(propagation = Propagation.SUPPORTS)
             if(parent txn present)
                Use it:
              else
                Execute the method without any transaction
     */
+
+
 
 
     @Transactional(propagation = Propagation.SUPPORTS)
